@@ -19,7 +19,7 @@ docker images --filter=reference="${IMAGE_NAME}" -q | sort -u | xargs -r docker 
 
 echo "==> Get the latest emba container image."
 docker image pull "${IMAGE_NAME}:${IMAGE_LABEL}"
-docker image pull "${IMAGE_NAME}:latest"
+# docker image pull "${IMAGE_NAME}:latest"
 
 echo "==> Backup the prior emba installation."
 
