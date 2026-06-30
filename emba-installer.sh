@@ -1,7 +1,7 @@
 #!/bin/bash
 
-IMAGE_NAME = "jni2000/emba"
-IMAGE_LABEL = "1.5.2jni-staging-latest"
+IMAGE_NAME="jni2000/emba"
+IMAGE_LABEL="1.5.2jni-staging-latest"
 echo "==> Start SODIACS emba installation for extended vulnerability scan...."
 cd ~/workspace/software-scanning
 sudo rm -fr emba-temp
