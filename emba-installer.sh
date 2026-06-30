@@ -1,8 +1,11 @@
 #!/bin/bash
 
 # Prompt user for input parameters
-read -p "Enter Docker container image name: " IMAGE_NAME
-read -p "Enter Docker container image label: " IMAGE_LABEL
+# read -p "Enter Docker container image name: " IMAGE_NAME
+# read -p "Enter Docker container image label: " IMAGE_LABEL
+
+IMAGE_NAME="jni2000/emba"
+IMAGE_LABEL="v2.0.2-staging2-latest"
 
 echo "==> Start SODIACS emba installation for extended vulnerability scan...."
 cd ~/workspace/software-scanning
@@ -21,7 +24,7 @@ docker images --filter=reference="${IMAGE_NAME}" -q | sort -u | xargs -r docker 
 
 echo "==> Get the latest emba container image."
 docker image pull "${IMAGE_NAME}:${IMAGE_LABEL}"
-docker image pull "${IMAGE_NAME}:latest"
+# docker image pull "${IMAGE_NAME}:latest"
 
 echo "==> Backup the prior emba installation."
 
@@ -42,7 +45,7 @@ echo "Renamed '$DIR' → '$NEW_DIR'"
 echo "==> Install the latest emba release."
 sudo mv emba-temp emba
 cd emba
-git checkout staging
+git checkout staging-2
 chmod +x installer.sh
 sudo ./installer.sh -d
 
