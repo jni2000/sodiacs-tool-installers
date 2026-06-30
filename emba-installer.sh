@@ -5,7 +5,7 @@
 # read -p "Enter Docker container image label: " IMAGE_LABEL
 
 IMAGE_NAME="jni2000/emba"
-IMAGE_LABEL="v2.0.2-staging2-latest"
+IMAGE_LABEL="2.0.2-staging2-latest"
 
 echo "==> Start SODIACS emba installation for extended vulnerability scan...."
 cd ~/workspace/software-scanning
