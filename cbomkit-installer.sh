@@ -4,6 +4,7 @@
 set -e
 
 # install or upgrade go to 25 or late
+chmod +x update_go.sh
 ./update_go.sh
 
 
