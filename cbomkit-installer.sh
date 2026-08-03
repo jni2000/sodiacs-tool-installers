@@ -3,6 +3,10 @@
 # Exit immediately if any command fails
 set -e
 
+# install or upgrade go to 25 or late
+./update_go.sh
+
+
 TARGET_DIR="$HOME/workspace/software-scanning"
 mkdir -p "$TARGET_DIR"
 cd "$TARGET_DIR"
