@@ -4,6 +4,7 @@
 set -e
 
 # install python 3.12 if not installed
+chmod +x install_python12.sh
 ./install_python12.sh
 
 # Define the path to your symlink
