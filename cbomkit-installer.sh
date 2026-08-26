@@ -16,8 +16,8 @@ mkdir -p "$TARGET_DIR"
 cd "$TARGET_DIR"
 
 git clone git@github.com:jni2000/cbomkit-theia.git
-git checkout main
  
-cd cbomkit-theia/
+cd cbomkit-theia
+git checkout main
 go mod download
 go build
