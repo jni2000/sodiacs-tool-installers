@@ -3,9 +3,12 @@
 # Exit immediately if any command fails
 set -e
 
+# Get the directory where this script is located
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 # install or upgrade go to 25 or late
-chmod +x update_go.sh
-./update_go.sh
+chmod +x "$SCRIPT_DIR/update_go.sh"
+"$SCRIPT_DIR/update_go.sh"
 
 
 TARGET_DIR="$HOME/workspace/software-scanning"

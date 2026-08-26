@@ -3,9 +3,12 @@
 # Exit immediately if any command fails
 set -e
 
+# Get the directory where this script is located
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 # install python 3.12 if not installed
-chmod +x install_python12.sh
-./install_python12.sh
+chmod +x "$SCRIPT_DIR/install_python12.sh"
+"$SCRIPT_DIR/install_python12.sh"
 
 # Define the path to your symlink
 SYMLINK_PATH="$HOME/workspace/software-scanning/scancode"
