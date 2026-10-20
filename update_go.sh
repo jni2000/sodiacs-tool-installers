@@ -1,12 +1,12 @@
-#!/bin/bash 
+#!/bin/bash
 
 ### Define the minimum major version required (e.g., 25 for 1.25)
 
-MIN_VERSION=25 
+MIN_VERSION=25
 
 ### Fetch the latest stable Go version string dynamically from the official API
 
-LATEST_VERSION=$(curl -s https://go.dev/VERSION?m=text | head -n 1) 
+LATEST_VERSION=$(curl -s https://go.dev/VERSION?m=text | head -n 1)
 
 ### Clean it up to just the version numbers (e.g., "1.26.5")
 
@@ -18,7 +18,7 @@ echo "Latest available Go version is: $LATEST_VERSION"
 
 if ! command -v go &> /dev/null; then
 echo "Go is not installed. Proceeding with fresh installation..."
-else 
+else
 
 # 2. Extract the installed major version number (e.g., 24 from "go1.24.2")
 
@@ -35,14 +35,14 @@ else
     echo "Upgrading to $LATEST_VERSION..."
 fi
 
-fi 
+fi
 
 ### 3. Download and Install/Update Go
 
 ### Define temporary download location and the installation directory
 
 TAR_FILE="/tmp/${LATEST_VERSION}.linux-amd64.tar.gz"
-INSTALL_DIR="/usr/local" 
+INSTALL_DIR="/usr/local"
 
 echo "Downloading ${LATEST_VERSION}..."
 curl -L "https://go.dev/dl/${LATEST_VERSION}.linux-amd64.tar.gz" -o "$TAR_FILE" 
@@ -68,7 +68,7 @@ if ! echo "$PATH" | grep -q "${INSTALL_DIR}/go/bin"; then
     echo "export PATH=\$PATH:${INSTALL_DIR}/go/bin" >> "$HOME/.bashrc"
     echo "Please run 'source ~/.bashrc' or restart your terminal to complete the setup."
 
-fi 
+fi
 
 echo "Go installation completed successfully!"
 "${INSTALL_DIR}/go/bin/go" version
