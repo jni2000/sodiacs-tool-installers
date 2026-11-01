@@ -6,7 +6,7 @@ MIN_VERSION=25
 
 ### Fetch the latest stable Go version string dynamically from the official API
 
-LATEST_VERSION=$(curl -s "https://go.dev/VERSION?m=text" | head -n 1)
+LATEST_VERSION=$(curl -s https://go.dev/VERSION?m=text | head -n 1)
 
 ### Clean it up to just the version numbers (e.g., "1.26.5")
 
@@ -19,7 +19,8 @@ echo "Latest available Go version is: $LATEST_VERSION"
 if ! command -v go &> /dev/null; then
     echo "Go is not installed. Proceeding with fresh installation..."
 else
-    ### 2. Extract the installed major version number (e.g., 24 from "go1.24.2")
+
+    # 2. Extract the installed major version number (e.g., 24 from "go1.24.2")
 
     INSTALLED_STR=$(go version | awk '{print $3}')
     INSTALLED_MAJOR=$(echo "$INSTALLED_STR" | cut -d. -f2)
@@ -62,7 +63,7 @@ if ! echo "$PATH" | grep -q "${INSTALL_DIR}/go/bin"; then
 
     echo "export PATH=\$PATH:${INSTALL_DIR}/go/bin" >> "$HOME/.bashrc"
     echo "Please run 'source ~/.bashrc' or restart your terminal to complete the setup."
-ficannot execute: required file not found
+fi
 
 echo "Go installation completed successfully!"
 "${INSTALL_DIR}/go/bin/go" version
