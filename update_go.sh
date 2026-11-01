@@ -17,23 +17,23 @@ echo "Latest available Go version is: $LATEST_VERSION"
 ### 1. Check if Go is installed at all
 
 if ! command -v go &> /dev/null; then
-echo "Go is not installed. Proceeding with fresh installation..."
+    echo "Go is not installed. Proceeding with fresh installation..."
 else
 
-# 2. Extract the installed major version number (e.g., 24 from "go1.24.2")
+    # 2. Extract the installed major version number (e.g., 24 from "go1.24.2")
 
-INSTALLED_STR=$(go version | awk '{print $3}')
-INSTALLED_MAJOR=$(echo "$INSTALLED_STR" | cut -d. -f2)
+    INSTALLED_STR=$(go version | awk '{print $3}')
+    INSTALLED_MAJOR=$(echo "$INSTALLED_STR" | cut -d. -f2)
 
-echo "Detected installed Go version: $INSTALLED_STR"
+    echo "Detected installed Go version: $INSTALLED_STR"
 
-if [ "$INSTALLED_MAJOR" -ge "$MIN_VERSION" ]; then
-    echo "Success: Your Go version is up to date (Go 1.$INSTALLED_MAJOR >= 1.$MIN_VERSION)."
-    exit 0
-else
-    echo "Your Go version (1.$INSTALLED_MAJOR) is older than the required 1.$MIN_VERSION."
-    echo "Upgrading to $LATEST_VERSION..."
-fi
+    if [ "$INSTALLED_MAJOR" -ge "$MIN_VERSION" ]; then
+        echo "Success: Your Go version is up to date (Go 1.$INSTALLED_MAJOR >= 1.$MIN_VERSION)."
+        exit 0
+    else
+        echo "Your Go version (1.$INSTALLED_MAJOR) is older than the required 1.$MIN_VERSION."
+        echo "Upgrading to $LATEST_VERSION..."
+    fi
 
 fi
 
