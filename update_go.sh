@@ -59,9 +59,8 @@ rm "$TAR_FILE"
 if ! echo "$PATH" | grep -q "${INSTALL_DIR}/go/bin"; then
     echo "Configuring environment PATH variables..."
 
-    # Append the Go path to the user's .bashrc profile
-
-    echo "export PATH=\$PATH:${INSTALL_DIR}/go/bin" >> "$HOME/.bashrc"
+    # Prepend so a later shell uses this install ahead of an older go.
+    echo "export PATH=${INSTALL_DIR}/go/bin:\$PATH" >> "$HOME/.bashrc"
     echo "Please run 'source ~/.bashrc' or restart your terminal to complete the setup."
 fi
 
