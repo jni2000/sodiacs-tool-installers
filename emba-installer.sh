@@ -65,6 +65,9 @@ ensure_docker() {
     echo "Error: Docker Compose is unavailable after install."
     exit 1
   fi
+
+  echo "==> Adding ${USER} to the docker group..."
+  sudo usermod -aG docker "${USER}"
 }
 
 ensure_docker
